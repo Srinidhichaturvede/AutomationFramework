@@ -25,7 +25,9 @@ Pre-requisites
 ========================================================================================
 Framework Execution:
 
-Both GUI and API tests are integrated into single framework
+Both GUI and API tests are integrated into single framework.
+
+For API Test case use Option 1 - Eclipse.
 
 1. Steps to run the automation framework.
 
