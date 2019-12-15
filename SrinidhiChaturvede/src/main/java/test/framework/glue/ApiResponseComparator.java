@@ -16,33 +16,29 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.testng.annotations.Test;
-
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 /**
- * This class will compare two API responses present in two different file and return the
- * output with meaningful message.
+ * This class will compare two API responses present in two different file and
+ * return the output with meaningful message.
  */
 public class ApiResponseComparator {
 
+	String fileName1 = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+			+ File.separator + "resources" + File.separator + "filedata" + File.separator + "file1.txt";
+	String fileName2 = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+			+ File.separator + "resources" + File.separator + "filedata" + File.separator + "file2.txt";
+	private static String url1Response = "";
+	private static String url2Response = "";
+	private static String url1 = " ";
+	private static String url2 = " ";
 
-		String fileName1 = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
-				+ File.separator + "resources" + File.separator + "filedata" + File.separator + "file1.txt";
-		String fileName2 = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
-				+ File.separator + "resources" + File.separator + "filedata" + File.separator + "file2.txt";
-		private static String url1Response="";
-		private static String url2Response="";
-		private static String url1 = " ";
-		private static String url2 = " ";
-		
-		/**
-		 * This method is used to read api url from text files and comparing the responses
-		 */
-		@Given("^Reading and comparing the API URL's from two files and parsing the response body and printing the output in console$")
-		public void FileInitiliazation(){
+	/**
+	 * This method is used to read api url from text files and comparing the
+	 * responses
+	 */
+	@Given("^Reading and comparing the API URL's from two files and parsing the response body and printing the output in console$")
+	public void FileInitiliazation() {
 		List<String> file1UrlList = readFileData(fileName1);
 		List<String> file2UrlList = readFileData(fileName2);
 		compareUrlResponse(file1UrlList, file2UrlList);
@@ -80,12 +76,12 @@ public class ApiResponseComparator {
 	public static void compareUrlResponse(List<String> file1UrlList, List<String> file2UrlList) {
 		Iterator<String> file1UrlListIterator = file1UrlList.iterator();
 		Iterator<String> file2UrlListIterator = file2UrlList.iterator();
-		
+
 		while (file1UrlListIterator.hasNext() && file2UrlListIterator.hasNext()) {
 			url1 = file1UrlListIterator.next();
 			url2 = file2UrlListIterator.next();
-			 url1Response = getApiData(url1);
-			 url2Response = getApiData(url2);
+			url1Response = getApiData(url1);
+			url2Response = getApiData(url2);
 			if ((null != url1 && !("".equals(url1))) || (null != url2 && !("".equals(url2)))) {
 				if (url1Response.equals(url2Response)) {
 
