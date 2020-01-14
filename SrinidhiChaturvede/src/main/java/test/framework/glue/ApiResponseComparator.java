@@ -76,7 +76,7 @@ public class ApiResponseComparator {
 	public static void compareUrlResponse(List<String> file1UrlList, List<String> file2UrlList) {
 		Iterator<String> file1UrlListIterator = file1UrlList.iterator();
 		Iterator<String> file2UrlListIterator = file2UrlList.iterator();
-
+		System.out.println("===================Start of API test file comparision============================");
 		while (file1UrlListIterator.hasNext() && file2UrlListIterator.hasNext()) {
 			url1 = file1UrlListIterator.next();
 			url2 = file2UrlListIterator.next();
@@ -94,9 +94,10 @@ public class ApiResponseComparator {
 				}
 			} else {
 				System.out.println("No Api Url Found on both the files");
-				System.out.println("=========================================================================");
+				System.out.println("=============================================================================");
 			}
 		}
+		System.out.println("=========================END of API Test case================================");
 	}
 
 	/**
